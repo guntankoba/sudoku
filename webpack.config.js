@@ -31,6 +31,14 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.ts?$/,
+        loader: "ts-loader",
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/]
+        }
+      },
+      {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
@@ -43,7 +51,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     },
-    extensions: ['*', '.js', '.vue', '.json']
+    extensions: ['*', '.js', '.ts', '.vue', '.json']
   },
   devServer: {
     historyApiFallback: true,
